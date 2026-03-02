@@ -50,11 +50,11 @@
       }
 
       a {
-        font-size: 1.15rem;
+        font-size: 1rem;
       }
 
       p {
-        font-size: 1.15rem;
+        font-size: 1rem;
       }
 
       .hero-title {
@@ -74,6 +74,10 @@
         max-height: 80vh;
         height: 641px;
       }
+
+      .post-date {
+        font-size: .8rem;
+      }
     </style>
   </head>
   <body>
@@ -82,9 +86,7 @@
         <h1 class="display-5 fw-bold">ccc</h1>
       </a>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">
-          A collection of things I've created or things that interest me.
-        </p>
+        <p class="mb-4">A collection of things I've created.</p>
         <div class="d-flex flex-column gap-2 align-items-center">
           <a
             class="icon-link px-4 gap-3"
@@ -126,37 +128,8 @@
       </div>
     </div>
 
-    <div class="container py-3">
-      <div class="card">
-        <div class="video-container">
-          <video
-            id="my-video"
-            class="video-js vjs-default-skin vjs-fill"
-            controls
-            preload="none"
-            poster="https://your-r2-bucket.com/videos/thumbnail.jpg"
-            data-setup="{}"
-          >
-            <source
-              src="https://media.calvincieslak.com/video/father-and-son.mp4"
-              type="video/mp4"
-            />
-            <p class="vjs-no-js">
-              Please enable JavaScript to view this video.
-            </p>
-          </video>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title">Father And Son - Yusuf/Cat Stevens (Cover)</h5>
-          <p class="card-text">
-            <a href="https://www.youtube.com/watch?v=GJ05k4dXk1g"
-              >Also on YouTube.</a
-            >
-          </p>
-        </div>
-      </div>
-    </div>
+    <!-- Will be filled by videoArr below -->
+    <div id="post-container" class="container py-3"></div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -164,5 +137,127 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+
+    <script>
+      (function init() {
+        const videoArr = [
+          {
+            source: "https://media.calvincieslak.com/video/budos-groove.mov",
+            date: "2025-09-23",
+          },
+          {
+            source:
+              "https://media.calvincieslak.com/video/2025-10-08-chiptune.mov",
+            date: "2025-10-08",
+          },
+          {
+            source: "https://media.calvincieslak.com/video/father-and-son.mp4",
+            thumbnail: "",
+            title: "Father And Son - Yusuf/Cat Stevens (Cover)",
+            date: "2025-11-05",
+            description: "Testing a description here. Lorem ipsum",
+            cta: {
+              text: "Also on YouTube.",
+              url: "https://www.youtube.com/watch?v=GJ05k4dXk1g",
+            },
+          },
+          {
+            source: "https://media.calvincieslak.com/video/hopeful.mp4",
+            title: "hopeful",
+            date: "2025-11-21",
+          },
+          {
+            source:
+              "https://media.calvincieslak.com/video/waste-it-with-you.mp4",
+            title: "Waste It With You - Tempesst (Cover)",
+            date: "2026-01-01",
+          },
+        ].sort((a, b) => {
+          return new Date(b.date).valueOf() - new Date(a.date).valueOf();
+        });
+
+        const postContainer = document.getElementById("post-container");
+
+        videoArr.forEach((v) => {
+          const newCard = document.createElement("div");
+          newCard.classList.add("card");
+          newCard.classList.add("mb-4");
+
+          if (v.source) {
+            const newVideoContainer = document.createElement("div");
+            newVideoContainer.classList.add("video-container");
+
+            const newVideoEl = document.createElement("video");
+
+            const newSourceEl = document.createElement("source");
+            newSourceEl.setAttribute("src", v.source);
+            newVideoEl.appendChild(newSourceEl);
+
+            // Classes
+            const videoClassList = ["video-js", "vjs-default-skin", "vjs-fill"];
+            videoClassList.forEach((c) => newVideoEl.classList.add(c));
+
+            // Attributes
+            newVideoEl.setAttribute("id", v.source.split("/").pop());
+            newVideoEl.setAttribute("controls", true);
+            newVideoEl.setAttribute("preload", "none");
+            // newVideoEl.setAttribute("poster", "");
+            newVideoEl.setAttribute("data-setup", "{}");
+
+            newVideoContainer.appendChild(newVideoEl);
+            newCard.appendChild(newVideoContainer);
+          }
+
+          if (
+            v.title ||
+            v.description ||
+            v.date ||
+            (v.cta?.url && v.cta?.text)
+          ) {
+            const newCardBody = document.createElement("div");
+            newCardBody.classList.add("card-body");
+
+            if (v.title) {
+              const newCardTitle = document.createElement("h5");
+              newCardTitle.classList.add("card-title");
+              newCardTitle.textContent = v.title;
+              newCardBody.appendChild(newCardTitle);
+            }
+
+            if (v.description) {
+              const newCardDescription = document.createElement("p");
+              newCardDescription.classList.add("card-text");
+              newCardDescription.textContent = v.description;
+              newCardBody.appendChild(newCardDescription);
+            }
+
+            if (v.cta?.url && v.cta?.text) {
+              const newCardCta = document.createElement("p");
+              newCardCta.classList.add("card-text");
+
+              const newCardCtaLink = document.createElement("a");
+              newCardCtaLink.setAttribute("href", v.cta.url);
+              newCardCtaLink.textContent = v.cta.text;
+
+              newCardCta.appendChild(newCardCtaLink);
+              newCardBody.appendChild(newCardCta);
+            }
+
+            if (v.date) {
+              const newCardDate = document.createElement("p");
+              newCardDate.classList.add("card-text");
+              newCardDate.classList.add("fst-italic");
+              newCardDate.classList.add("post-date");
+              newCardDate.textContent = v.date;
+              newCardBody.appendChild(newCardDate);
+            }
+
+            newCard.appendChild(newCardBody);
+          }
+
+          postContainer.appendChild(newCard);
+        });
+      })();
+    </script>
   </body>
 </html>
