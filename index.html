@@ -70,13 +70,25 @@
         font-size: 5rem;
       }
 
+      .card-custom {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: none;
+      }
+
+      .dimension-container {
+        width: 360px;
+        margin: 0 auto;
+      }
+
       .video-container {
         max-height: 80vh;
-        height: 641px;
+        height: 640px;
+        width: 360px;
       }
 
       .post-date {
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
     </style>
   </head>
@@ -128,8 +140,27 @@
       </div>
     </div>
 
-    <!-- Will be filled by videoArr below -->
-    <div id="post-container" class="container py-3"></div>
+    <!-- Test markup -->
+    <!-- <div class="container py-3"> -->
+    <!--   <div class="row g-3"> -->
+    <!--     <div class="col-12 col-lg-6"> -->
+    <!--       <div class="video-container"> -->
+    <!--         ... -->
+    <!--         <div class="card"> -->
+    <!--           <div class="card-body"> -->
+    <!--             <h5 class="card-title">Title</h5> -->
+    <!--             <p class="cart-text">asdjfoi aoijsd fkjwoiej</p> -->
+    <!--           </div> -->
+    <!--         </div> -->
+    <!--       </div> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <div class="container py-3">
+      <!-- Will be filled by videoArr below -->
+      <div id="post-container" class="row g-3"></div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -179,9 +210,13 @@
         const postContainer = document.getElementById("post-container");
 
         videoArr.forEach((v) => {
-          const newCard = document.createElement("div");
-          newCard.classList.add("card");
-          newCard.classList.add("mb-4");
+          const newColumnWrapper = document.createElement("div");
+          newColumnWrapper.classList.add("col-12");
+          newColumnWrapper.classList.add("col-xl-4");
+          newColumnWrapper.classList.add("col-lg-6");
+
+          const newWrapper = document.createElement("div");
+          newWrapper.classList.add("dimension-container");
 
           if (v.source) {
             const newVideoContainer = document.createElement("div");
@@ -205,8 +240,12 @@
             newVideoEl.setAttribute("data-setup", "{}");
 
             newVideoContainer.appendChild(newVideoEl);
-            newCard.appendChild(newVideoContainer);
+            newWrapper.appendChild(newVideoContainer);
           }
+
+          const newCard = document.createElement("div");
+          newCard.classList.add("card");
+          newCard.classList.add("card-custom");
 
           if (
             v.title ||
@@ -253,9 +292,11 @@
             }
 
             newCard.appendChild(newCardBody);
+            newWrapper.appendChild(newCard);
+            newColumnWrapper.appendChild(newWrapper);
           }
 
-          postContainer.appendChild(newCard);
+          postContainer.appendChild(newColumnWrapper);
         });
       })();
     </script>
