@@ -16,6 +16,7 @@
     />
 
     <title>Calvin Cieslak</title>
+
     <!-- IBM VGA defined below taken from the Old School Font Pack, Author: VileR, https://int10h.org -->
     <style>
       :root {
@@ -174,16 +175,20 @@
         const videoArr = [
           {
             source: "https://media.calvincieslak.com/video/budos-groove.mov",
+            thumbnail: "https://media.calvincieslak.com/image/budos-groove.jpg",
             date: "2025-09-23",
           },
           {
             source:
               "https://media.calvincieslak.com/video/2025-10-08-chiptune.mov",
+            thumbnail:
+              "https://media.calvincieslak.com/image/chiptune.jpg",
             date: "2025-10-08",
           },
           {
             source: "https://media.calvincieslak.com/video/father-and-son.mp4",
-            thumbnail: "",
+            thumbnail:
+              "https://media.calvincieslak.com/image/father-and-son.jpg",
             title: "Father And Son - Yusuf/Cat Stevens (Cover)",
             date: "2025-11-05",
             description: "",
@@ -194,12 +199,15 @@
           },
           {
             source: "https://media.calvincieslak.com/video/hopeful.mp4",
+            thumbnail: "https://media.calvincieslak.com/image/hopeful.jpg",
             title: "hopeful",
             date: "2025-11-21",
           },
           {
             source:
               "https://media.calvincieslak.com/video/waste-it-with-you.mp4",
+            thumbnail:
+              "https://media.calvincieslak.com/image/waste-it-with-you.jpg",
             title: "Waste It With You - Tempesst (Cover)",
             date: "2026-01-01",
           },
@@ -223,24 +231,19 @@
             newVideoContainer.classList.add("video-container");
 
             const newVideoEl = document.createElement("video");
+            newVideoEl.className = "video-js vjs-default-skin vjs-fill";
 
-            const newSourceEl = document.createElement("source");
-            newSourceEl.setAttribute("src", v.source);
-            newVideoEl.appendChild(newSourceEl);
-
-            // Classes
-            const videoClassList = ["video-js", "vjs-default-skin", "vjs-fill"];
-            videoClassList.forEach((c) => newVideoEl.classList.add(c));
-
-            // Attributes
-            newVideoEl.setAttribute("id", v.source.split("/").pop());
-            newVideoEl.setAttribute("controls", true);
-            newVideoEl.setAttribute("preload", "none");
-            // newVideoEl.setAttribute("poster", "");
-            newVideoEl.setAttribute("data-setup", "{}");
-
+            // Append to DOM BEFORE initializing Video.js
             newVideoContainer.appendChild(newVideoEl);
             newWrapper.appendChild(newVideoContainer);
+
+            // Let Video.js handle everything after the element is in the DOM
+            const player = videojs(newVideoEl, {
+              controls: true,
+              preload: "none",
+              sources: [{ src: v.source, type: "video/mp4" }],
+              ...(v.thumbnail && { poster: v.thumbnail }),
+            });
           }
 
           const newCard = document.createElement("div");
