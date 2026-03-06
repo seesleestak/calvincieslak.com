@@ -10,10 +10,6 @@
     <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
 
     <title>Calvin Cieslak</title>
 
@@ -21,11 +17,11 @@
     <style>
       :root {
         --bs-font-monospace:
-          "JetBrains Mono", Menlo, Monaco, "Cascadia Code", "Source Code Pro",
+          Menlo, Monaco, "Cascadia Code", "Source Code Pro",
           Consolas, "Courier New", monospace;
 
         --bs-body-font-family:
-          "JetBrains Mono", Menlo, Monaco, "Cascadia Code", "Source Code Pro",
+          Menlo, Monaco, "Cascadia Code", "Source Code Pro",
           Consolas, "Courier New", monospace;
 
         --font-size-base: 3rem;
@@ -96,7 +92,7 @@
   <body>
     <div class="px-4 py-2 my-2 text-center">
       <a class="hero-title" href="/">
-        <h1 class="display-5 fw-bold">ccc</h1>
+        <h1 id="hero-h1" class="display-5 fw-bold">ccc</h1>
       </a>
       <div class="col-lg-6 mx-auto">
         <p class="mb-4">A collection of things I've created.</p>
@@ -169,6 +165,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
     <script>
       (function init() {
@@ -181,8 +179,7 @@
           {
             source:
               "https://media.calvincieslak.com/video/2025-10-08-chiptune.mov",
-            thumbnail:
-              "https://media.calvincieslak.com/image/chiptune.jpg",
+            thumbnail: "https://media.calvincieslak.com/image/chiptune.jpg",
             date: "2025-10-08",
           },
           {
@@ -300,6 +297,16 @@
           }
 
           postContainer.appendChild(newColumnWrapper);
+        });
+
+        gsap.registerPlugin(SplitText);
+        const split = SplitText.create("#hero-h1", { type: "chars" });
+
+        gsap.to(split.chars, {
+          y: 7,
+          stagger: { each: 0.3, from: "start", repeat: -1, yoyo: true },
+          duration: 0.6,
+          ease: "sine.inOut",
         });
       })();
     </script>
