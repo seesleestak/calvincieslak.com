@@ -82,9 +82,73 @@
     return new Date(b.date).valueOf() - new Date(a.date).valueOf();
   });
 
-  const postContainer = document.getElementById("post-container");
+  const PAGE_SIZE = 6;
+  const params = new URL(location).searchParams;
+  const page = Number(params.get("page") ?? "1");
+  const pageCount = Math.ceil(videoArr.length / PAGE_SIZE);
 
-  videoArr.forEach((v) => {
+  const start = (page - 1) * PAGE_SIZE;
+  const pageVideoArr = videoArr.slice(start, start + PAGE_SIZE);
+
+  // Pagination button creator
+  const createPageButton = ({
+    parent,
+    text,
+    href = "",
+    active = false,
+    disabled = false,
+  }) => {
+    const newLi = document.createElement("li");
+    newLi.classList.add("page-item");
+    if (active) {
+      newLi.classList.add("active");
+    }
+    if (disabled) {
+      newLi.classList.add("disabled");
+    }
+
+    const newLink = document.createElement("a");
+    newLink.classList.add("page-link");
+    newLink.textContent = text;
+    newLink.setAttribute("href", href);
+
+    newLi.appendChild(newLink);
+    parent.appendChild(newLi);
+  };
+
+  const paginationComponents = [
+    ...document.getElementsByClassName("pagination"),
+  ];
+  paginationComponents.forEach((c) => {
+    createPageButton({
+      parent: c,
+      text: "Previous",
+      href: `?page=${page - 1}`,
+      active: false,
+      disabled: page === 1,
+    });
+
+    Array.from({ length: pageCount }).forEach((_, i) => {
+      createPageButton({
+        parent: c,
+        text: i + 1,
+        href: `?page=${i + 1}`,
+        active: page === i + 1,
+      });
+    });
+
+    createPageButton({
+      parent: c,
+      text: "Next",
+      href: `?page=${page + 1}`,
+      active: false,
+      disabled: page === pageCount,
+    });
+  });
+
+  // Populate video cards
+  const postContainer = document.getElementById("post-container");
+  pageVideoArr.forEach((v) => {
     const newColumnWrapper = document.createElement("div");
     newColumnWrapper.classList.add("col-12");
     newColumnWrapper.classList.add("col-xl-4");
