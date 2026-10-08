@@ -27,6 +27,11 @@
 
   --bs-link-hover-color: #ffdf94;
   --bs-link-hover-color-rgb: 255, 238, 186;
+
+  .pagination {
+    --bs-pagination-active-bg: #714609;
+    --bs-pagination-active-border-color: #714609;
+  }
 }
 
 a {
