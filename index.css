@@ -1,0 +1,72 @@
+:root {
+  --bs-font-monospace:
+    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas,
+    "Courier New", monospace;
+
+  --bs-body-font-family:
+    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas,
+    "Courier New", monospace;
+
+  --font-size-base: 3rem;
+}
+
+@font-face {
+  font-family: "IBM VGA";
+  src: url("fonts/WebPlus_IBM_VGA_9x14.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #18222c;
+  --bs-body-color: #e0e0e0;
+
+  --bs-link-color: #ffd36b;
+  --bs-link-color-rgb: 255, 211, 107;
+
+  --bs-link-hover-color: #ffdf94;
+  --bs-link-hover-color-rgb: 255, 238, 186;
+}
+
+a {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.hero-title {
+  text-decoration: none;
+}
+
+.hero-title h1 {
+  font-family: "IBM VGA";
+  color: #fea82f;
+  text-shadow:
+    -3px 0px 0px #ffeeba,
+    5px 0px 0px #714609;
+  font-size: 5rem;
+}
+
+.card-custom {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+
+.dimension-container {
+  width: 360px;
+  margin: 0 auto;
+}
+
+.video-container {
+  max-height: 80vh;
+  height: 640px;
+  width: 360px;
+}
+
+.post-date {
+  font-size: 0.8rem;
+}
