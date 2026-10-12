@@ -9,7 +9,7 @@ export const videos = [
     source: "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
     thumbnail: "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
     title: "The Man With The Harmonica (Cover)",
-    url: "the-man-with-the-harmonica-cover",
+    url: "the-man-with-the-harmonica",
     date: "2026-09-22",
   },
   {
@@ -27,7 +27,7 @@ export const videos = [
     source: "https://media.calvincieslak.com/video/fell-on-hard-times.mov",
     thumbnail: "https://media.calvincieslak.com/image/fell-on-hard-times.jpg",
     title: "Fell on Hard Times - Neal Casal (Cover)",
-    url: "fell-on-hard-times-neal-casal-cover",
+    url: "fell-on-hard-times-neal-casal",
     date: "2026-05-25",
   },
   {
@@ -57,7 +57,7 @@ export const videos = [
     source: "https://media.calvincieslak.com/video/father-and-son.mp4",
     thumbnail: "https://media.calvincieslak.com/image/father-and-son.jpg",
     title: "Father And Son - Yusuf/Cat Stevens (Cover)",
-    url: "father-and-son-yusuf-cat-stevens-cover",
+    url: "father-and-son-yusuf-cat-stevens",
     date: "2025-11-05",
     description: "",
     cta: {
@@ -80,7 +80,7 @@ export const videos = [
     source: "https://media.calvincieslak.com/video/waste-it-with-you.mp4",
     thumbnail: "https://media.calvincieslak.com/image/waste-it-with-you.jpg",
     title: "Waste It With You - Tempesst (Cover)",
-    url: "waste-it-with-you-tempesst-cover",
+    url: "waste-it-with-you-tempesst",
     date: "2026-01-01",
   },
 ].sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
