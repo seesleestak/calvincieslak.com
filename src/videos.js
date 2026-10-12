@@ -1,0 +1,86 @@
+export const videos = [
+  {
+    source: "https://media.calvincieslak.com/video/20260911.mov",
+    thumbnail: "https://media.calvincieslak.com/image/20260911.jpg",
+    url: "20260911",
+    date: "2026-09-27",
+  },
+  {
+    source: "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
+    thumbnail: "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
+    title: "The Man With The Harmonica (Cover)",
+    url: "the-man-with-the-harmonica",
+    date: "2026-09-22",
+  },
+  {
+    source: "https://media.calvincieslak.com/video/apprehension.mov",
+    thumbnail: "https://media.calvincieslak.com/image/apprehension.jpg",
+    title: "Apprehension",
+    url: "apprehension",
+    date: "2026-08-31",
+    cta: {
+      text: "Also on YouTube.",
+      url: "https://youtube.com/shorts/g_ppBQ0gDoE",
+    },
+  },
+  {
+    source: "https://media.calvincieslak.com/video/fell-on-hard-times.mov",
+    thumbnail: "https://media.calvincieslak.com/image/fell-on-hard-times.jpg",
+    title: "Fell on Hard Times - Neal Casal (Cover)",
+    url: "fell-on-hard-times-neal-casal",
+    date: "2026-05-25",
+  },
+  {
+    source: "https://media.calvincieslak.com/video/2026-03-25-be-a-square.mov",
+    thumbnail: "https://media.calvincieslak.com/image/2026-03-25-be-a-square.jpg",
+    title: "Be A Square",
+    url: "be-a-square",
+    date: "2026-03-25",
+    cta: {
+      text: "Also on YouTube.",
+      url: "https://www.youtube.com/shorts/pLqux4JilQQ",
+    },
+  },
+  {
+    source: "https://media.calvincieslak.com/video/budos-groove.mov",
+    thumbnail: "https://media.calvincieslak.com/image/budos-groove.jpg",
+    url: "budos-groove",
+    date: "2025-09-23",
+  },
+  {
+    source: "https://media.calvincieslak.com/video/2025-10-08-chiptune.mov",
+    thumbnail: "https://media.calvincieslak.com/image/chiptune.jpg",
+    url: "2025-10-08-chiptune",
+    date: "2025-10-08",
+  },
+  {
+    source: "https://media.calvincieslak.com/video/father-and-son.mp4",
+    thumbnail: "https://media.calvincieslak.com/image/father-and-son.jpg",
+    title: "Father And Son - Yusuf/Cat Stevens (Cover)",
+    url: "father-and-son-yusuf-cat-stevens",
+    date: "2025-11-05",
+    description: "",
+    cta: {
+      text: "Also on YouTube.",
+      url: "https://www.youtube.com/watch?v=GJ05k4dXk1g",
+    },
+  },
+  {
+    source: "https://media.calvincieslak.com/video/hopeful.mp4",
+    thumbnail: "https://media.calvincieslak.com/image/hopeful.jpg",
+    title: "hopeful",
+    url: "hopeful",
+    date: "2025-11-21",
+    cta: {
+      text: "Also on YouTube.",
+      url: "https://www.youtube.com/shorts/os5wey5GIAs",
+    },
+  },
+  {
+    source: "https://media.calvincieslak.com/video/waste-it-with-you.mp4",
+    thumbnail: "https://media.calvincieslak.com/image/waste-it-with-you.jpg",
+    title: "Waste It With You - Tempesst (Cover)",
+    url: "waste-it-with-you-tempesst",
+    date: "2026-01-01",
+  },
+].sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
