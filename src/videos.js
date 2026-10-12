@@ -2,12 +2,15 @@ export const videos = [
   {
     source: "https://media.calvincieslak.com/video/20260911.mov",
     thumbnail: "https://media.calvincieslak.com/image/20260911.jpg",
+    title: "20260911",
     url: "20260911",
     date: "2026-09-27",
   },
   {
-    source: "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
-    thumbnail: "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
+    source:
+      "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
+    thumbnail:
+      "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
     title: "The Man With The Harmonica (Cover)",
     url: "the-man-with-the-harmonica",
     date: "2026-09-22",
@@ -32,7 +35,8 @@ export const videos = [
   },
   {
     source: "https://media.calvincieslak.com/video/2026-03-25-be-a-square.mov",
-    thumbnail: "https://media.calvincieslak.com/image/2026-03-25-be-a-square.jpg",
+    thumbnail:
+      "https://media.calvincieslak.com/image/2026-03-25-be-a-square.jpg",
     title: "Be A Square",
     url: "be-a-square",
     date: "2026-03-25",
@@ -44,12 +48,14 @@ export const videos = [
   {
     source: "https://media.calvincieslak.com/video/budos-groove.mov",
     thumbnail: "https://media.calvincieslak.com/image/budos-groove.jpg",
+    title: "Budos groove",
     url: "budos-groove",
     date: "2025-09-23",
   },
   {
     source: "https://media.calvincieslak.com/video/2025-10-08-chiptune.mov",
     thumbnail: "https://media.calvincieslak.com/image/chiptune.jpg",
+    title: "2025-10-08-chiptune",
     url: "2025-10-08-chiptune",
     date: "2025-10-08",
   },
