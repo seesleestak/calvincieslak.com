@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite dev --open",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -17,6 +19,8 @@
     "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.39.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-svelte": "^4.1.0",
     "svelte": "^5.39.6",
     "vite": "^7.1.7"
   }
