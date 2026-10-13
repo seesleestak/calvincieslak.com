@@ -7,10 +7,8 @@ export const videos = [
     date: "2026-09-27",
   },
   {
-    source:
-      "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
-    thumbnail:
-      "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
+    source: "https://media.calvincieslak.com/video/the_man_with_the_harmonica.mov",
+    thumbnail: "https://media.calvincieslak.com/image/the_man_with_the_harmonica.jpg",
     title: "The Man With The Harmonica (Cover)",
     url: "the-man-with-the-harmonica",
     date: "2026-09-22",
@@ -35,8 +33,7 @@ export const videos = [
   },
   {
     source: "https://media.calvincieslak.com/video/2026-03-25-be-a-square.mov",
-    thumbnail:
-      "https://media.calvincieslak.com/image/2026-03-25-be-a-square.jpg",
+    thumbnail: "https://media.calvincieslak.com/image/2026-03-25-be-a-square.jpg",
     title: "Be A Square",
     url: "be-a-square",
     date: "2026-03-25",

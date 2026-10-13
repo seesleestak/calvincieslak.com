@@ -8,9 +8,7 @@
   const pageSize = 6;
   const pageCount = Math.ceil(videos.length / pageSize);
   let { page } = $props();
-  const pageVideos = $derived(
-    videos.slice((page - 1) * pageSize, page * pageSize),
-  );
+  const pageVideos = $derived(videos.slice((page - 1) * pageSize, page * pageSize));
   const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
 
   let heroHeading;
@@ -49,8 +47,7 @@
             <a
               class="page-link"
               href={`/${pageNumber}/`}
-              aria-current={page === pageNumber ? "page" : undefined}
-              >{pageNumber}</a
+              aria-current={page === pageNumber ? "page" : undefined}>{pageNumber}</a
             >
           </li>
         {/each}

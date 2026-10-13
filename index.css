@@ -1,11 +1,9 @@
 :root {
   --bs-font-monospace:
-    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas,
-    "Courier New", monospace;
+    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas, "Courier New", monospace;
 
   --bs-body-font-family:
-    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas,
-    "Courier New", monospace;
+    Menlo, Monaco, "Cascadia Code", "Source Code Pro", Consolas, "Courier New", monospace;
 
   --font-size-base: 3rem;
 }

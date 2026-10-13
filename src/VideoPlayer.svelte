@@ -18,9 +18,5 @@
 </script>
 
 <div class="video-container">
-  <video
-    bind:this={videoElement}
-    class="video-js vjs-default-skin vjs-fill"
-    playsinline
-  ></video>
+  <video bind:this={videoElement} class="video-js vjs-default-skin vjs-fill" playsinline></video>
 </div>
