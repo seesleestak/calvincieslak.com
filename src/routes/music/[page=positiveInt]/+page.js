@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { videos } from "../../videos.js";
+import { videos } from "../../../videos.js";
 
 const pageSize = 6;
 const pageCount = Math.ceil(videos.length / pageSize);

@@ -1,3 +1,5 @@
+import { redirect } from "@sveltejs/kit";
+
 export function load() {
-  return { page: 1 };
+  redirect(307, "/music/1/");
 }

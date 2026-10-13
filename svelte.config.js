@@ -14,7 +14,7 @@ const config = {
       assets: "dist",
     }),
     prerender: {
-      entries: ["/", ...Array.from({ length: pageCount }, (_, index) => `/${index + 1}/`)],
+      entries: ["/", ...Array.from({ length: pageCount }, (_, index) => `/music/${index + 1}/`)],
     },
   },
 };

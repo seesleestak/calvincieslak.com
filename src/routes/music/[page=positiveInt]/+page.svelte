@@ -1,5 +1,5 @@
 <script>
-  import VideoFeed from "../../lib/VideoFeed.svelte";
+  import VideoFeed from "../../../lib/VideoFeed.svelte";
 
   let { data } = $props();
 </script>

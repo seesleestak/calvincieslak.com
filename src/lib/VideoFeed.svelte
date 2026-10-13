@@ -37,7 +37,7 @@
         <li class="page-item" class:disabled={page === 1}>
           <a
             class="page-link"
-            href={`/${Math.max(page - 1, 1)}/`}
+            href={`/music/${Math.max(page - 1, 1)}/`}
             aria-disabled={page === 1}
             tabindex={page === 1 ? -1 : undefined}>Previous</a
           >
@@ -46,7 +46,7 @@
           <li class="page-item" class:active={page === pageNumber}>
             <a
               class="page-link"
-              href={`/${pageNumber}/`}
+              href={`/music/${pageNumber}/`}
               aria-current={page === pageNumber ? "page" : undefined}>{pageNumber}</a
             >
           </li>
@@ -54,7 +54,7 @@
         <li class="page-item" class:disabled={page === pageCount}>
           <a
             class="page-link"
-            href={page < pageCount ? `/${page + 1}/` : `/${page}/`}
+            href={page < pageCount ? `/music/${page + 1}/` : `/music/${page}/`}
             aria-disabled={page === pageCount}
             tabindex={page === pageCount ? -1 : undefined}>Next</a
           >

@@ -16,5 +16,5 @@ npm run build
 npm run preview
 ```
 
-Pagination is served at `/1/`, `/2/`, and so on. The site root (`/`) displays
-the first page.
+Pagination is served at `/music/1/`, `/music/2/`, and so on. The site root (`/`)
+redirects to `/music/1/`.
