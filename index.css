@@ -73,3 +73,17 @@ p {
 .post-date {
   font-size: 0.8rem;
 }
+
+.error-container {
+  min-height: 32rem;
+}
+
+.error-box {
+  padding: 4rem;
+
+  h2 {
+    font-size: 7rem;
+    font-style: italic;
+    color: #dc3545;
+  }
+}
